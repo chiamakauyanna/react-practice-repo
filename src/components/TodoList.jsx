@@ -17,22 +17,27 @@ const TodoList = () => {
     }
 
   return (
-    <div className='bg-yellow-300 py-3 px-4 w-1/2 mx-auto rounded-2xl drop-shadow'>
+    <div className='bg-yellow-300 pt-3 px-4 w-[19rem] mx-auto rounded-2xl drop-shadow'>
       <h1 className='text-center font-bold text-2xl mb-4'>Todo App</h1>
-      <input type="text"
-      placeholder='Add new task'
-      ref={inputRef}
-      className='px-3 py-1 bg-yellow-50 rounded-l-md'
-       />
-        <button className='bg-gray-800 py-1 px-3 rounded-r text-gray-100 md:bg-white '  onClick={handleClick}>Add Task</button>
-       <ul className='py-4 mb-4'>
+      <div className='flex flex-col'>
+        <input type="text"
+        placeholder='Add new task'
+        ref={inputRef}
+        className='px-3 py-2 bg-yellow-50 rounded focus:focus:outline-none'
+        />
+          <button className='bg-gray-800 py-2 px-3 rounded text-white my-4'  onClick={handleClick}>Add Task</button>
+      </div>
+       <ul className='py-4 mb-4 flex flex-col items-center'>
        {todos.map((todo, index) =>  (
-          <li key={index} className=' bg-yellow-200 rounded-xl w-48 py-1 px-4 flex justify-between items-center mb-3'>{todo}
+          <li key={index} className=' bg-yellow-200 w-60 rounded-xl px-4 py-3 flex justify-between items-center mb-3'>{todo}
             <div>
+              <div className='flex flex-col'>
               <input 
                 type='checkbox'
+                className='text-center'
               />
-              <button className='text-red-700 text-lg ml-2 ' onClick={() => handleDelete(index)}>x</button>
+              <button className='text-red-700' onClick={() => handleDelete(index)}>x</button>
+              </div>
             </div>
          </li>
        ))}
